@@ -24,9 +24,9 @@ RUN echo y | ${SDK_ROOT}/tools/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS
 RUN echo y | ${SDK_ROOT}/tools/bin/sdkmanager "extras;android;m2repository" >/dev/null 2>&1
 RUN echo y | ${SDK_ROOT}/tools/bin/sdkmanager "extras;google;google_play_services" >/dev/null 2>&1
 RUN echo y | ${SDK_ROOT}/tools/bin/sdkmanager "extras;google;m2repository" >/dev/null 2>&1
-RUN export ANDROID_HOME=${SDK_ROOT}
-RUN export ANDROID_NDK_HOME=${SDK_ROOT}/ndk-bundle/
-RUN export PATH=$PATH:${SDK_ROOT}/platform-tools/
+ENV ANDROID_HOME ${SDK_ROOT}
+ENV ANDROID_NDK_HOME ${SDK_ROOT}/ndk-bundle/
+ENV PATH $PATH:${SDK_ROOT}/platform-tools/
 RUN touch local.properties
 RUN echo "sdk.dir=${ANDROID_HOME}" >> local.properties
 RUN echo "ndk.dir=${ANDROID_NDK_HOME}" >> local.properties
