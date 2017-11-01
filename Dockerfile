@@ -31,3 +31,4 @@ RUN apt-get --quiet update --yes \
     && echo "sdk.dir=${ANDROID_HOME}" >> local.properties \
     && echo "ndk.dir=${ANDROID_NDK_HOME}" >> local.properties \
     && chmod +x ./gradlew
+
