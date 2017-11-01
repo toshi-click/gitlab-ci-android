@@ -30,5 +30,4 @@ RUN export PATH=$PATH:${SDK_ROOT}/platform-tools/
 RUN touch local.properties
 RUN echo "sdk.dir=${ANDROID_HOME}" >> local.properties
 RUN echo "ndk.dir=${ANDROID_NDK_HOME}" >> local.properties
-RUN chmod +x ./gradlew
 
