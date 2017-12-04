@@ -1,0 +1,27 @@
+﻿# dynamically generated files
+/log/*
+/file/*
+/tmp/*
+.idea
+*~
+*.bak
+# hidden files created by Windows
+Thumbs.db
+desktop.ini
+
+# the composer package lock file and install directory
+#/composer.lock
+/vendor/
+
+# netbeans IDE が勝手に作るプロジェクトファイルは Git に反映させない
+/nbproject/
+
+# Vagrant + docker
+
+# Vagrant用設定
+/.vagrant/*
+.vagrant/*
+/.vagrant/
+
+# Ansible
+*.retry
