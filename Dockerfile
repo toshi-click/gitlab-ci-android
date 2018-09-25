@@ -5,8 +5,8 @@ MAINTAINER toshi <toshi@toshi.click>
 
 # set Env
 ENV ANDROID_SDK_TOOLS "3859397"
-ENV ANDROID_BUILD_TOOLS "27.0.3"
-ENV ANDROID_COMPILE_SDK "27"
+ENV ANDROID_BUILD_TOOLS "28.0.2"
+ENV ANDROID_COMPILE_SDK "28"
 ENV SDK_ROOT "/sdk"
 
 RUN apt-get --quiet update --yes
@@ -30,4 +30,3 @@ ENV PATH $PATH:${SDK_ROOT}/platform-tools/
 RUN touch local.properties
 RUN echo "sdk.dir=${ANDROID_HOME}" >> local.properties
 RUN echo "ndk.dir=${ANDROID_NDK_HOME}" >> local.properties
-
