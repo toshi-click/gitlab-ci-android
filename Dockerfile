@@ -75,7 +75,7 @@ RUN { \
          --silent \
          --build="$gnuArch" \
          --disable-install-doc \
-         --enable-shared \
+         --enable-shared && \
     make --silent -j "$(nproc)" && \
     make --silent install && \
     apt-get --quiet purge -y --auto-remove $BUILD_DEPS && \
@@ -85,5 +85,21 @@ RUN gem update --system "$RUBYGEMS_VERSION" && \
     gem install bundler --version "$BUNDLER_VERSION" --force && \
     rm -r /root/.gem/ && \
     mkdir -p "$GEM_HOME" && chmod 777 "$GEM_HOME"
+
+# ——————————
+# Install Node and global packages
+# ——————————
+ENV NODE_VERSION 8.11.3
+RUN cd && \
+  wget -q http://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz && \
+  tar -xzf node-v${NODE_VERSION}-linux-x64.tar.gz && \
+  mv node-v${NODE_VERSION}-linux-x64 /opt/node && \
+  rm node-v${NODE_VERSION}-linux-x64.tar.gz
+ENV PATH ${PATH}:/opt/node/bin
+
+# ——————————
+# Install Basic React-Native packages
+# ——————————
+RUN npm install react-native-cli rnpm yarn -g
 
 CMD [ "irb" ]
