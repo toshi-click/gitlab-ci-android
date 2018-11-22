@@ -2,7 +2,7 @@ FROM openjdk:8-jdk
 
 # set Env
 ENV ANDROID_SDK_TOOLS="3859397" \
-    ANDROID_BUILD_TOOLS="28.0.2" \
+    ANDROID_BUILD_TOOLS="28.0.3" \
     ANDROID_COMPILE_SDK="28" \
     SDK_ROOT="/sdk" \
     ANDROID_HOME="${SDK_ROOT}" \
