@@ -89,7 +89,7 @@ RUN gem update --system "$RUBYGEMS_VERSION" && \
 # ——————————
 # Install Node and global packages
 # ——————————
-ENV NODE_VERSION 8.11.3
+ENV NODE_VERSION 10.13.0
 RUN cd && \
   wget -q http://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz && \
   tar -xzf node-v${NODE_VERSION}-linux-x64.tar.gz && \
