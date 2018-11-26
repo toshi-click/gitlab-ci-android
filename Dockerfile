@@ -1,10 +1,10 @@
 FROM openjdk:8-jdk
 
 # set Env
+ENV SDK_ROOT="/sdk"
 ENV ANDROID_SDK_TOOLS="3859397" \
     ANDROID_BUILD_TOOLS="28.0.3" \
     ANDROID_COMPILE_SDK="28" \
-    SDK_ROOT="/sdk" \
     ANDROID_HOME="${SDK_ROOT}" \
     ANDROID_NDK_HOME="${SDK_ROOT}/ndk-bundle/" \
     PATH="$PATH:${SDK_ROOT}/platform-tools/"
@@ -31,12 +31,12 @@ RUN wget --quiet --output-document=android-sdk.zip https://dl.google.com/android
     echo "ndk.dir=${ANDROID_NDK_HOME}" >> local.properties
 
 # Ruby install
+ENV GEM_HOME='/usr/local/bundle'
+ENV BUNDLE_PATH="$GEM_HOME"
 ENV RUBY_MAJOR=2.5 \
     RUBY_VERSION=2.5.3 \
     RUBYGEMS_VERSION=2.7.8 \
     BUNDLER_VERSION=1.17.1 \
-    GEM_HOME='/usr/local/bundle' \
-    BUNDLE_PATH="$GEM_HOME" \
     BUNDLE_SILENCE_ROOT_WARNING=1 \
     BUNDLE_APP_CONFIG="$GEM_HOME" \
     BUILD_DEPS='bison dpkg-dev libgdbm-dev ruby' \
